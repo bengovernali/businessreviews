@@ -1,0 +1,20 @@
+<section class="section">
+    <table class="table">
+        <thead>
+            <tr>
+                <td>Name</td>
+                <td>Address</td>
+                <td>Phone Number</td>
+                <td>Business Type</td>
+            </tr>
+        </thead>
+        ${listOfBusinesses.map(business => 
+                `<tr>
+                    <td>${business.name}</td>
+                    <td>${business.address}</td>
+                    <td>${business.phone}</td>
+                    <td>${business.type}</td>
+                </tr>`
+            ).join('')}
+    </table>
+</section>
