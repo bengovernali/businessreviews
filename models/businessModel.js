@@ -13,7 +13,7 @@ class Businesses {
         try {
             let response = await db.any(
                 `select 
-                    name, address, phone, type 
+                    name 
                 from 
                     businesses`);
             return response;
