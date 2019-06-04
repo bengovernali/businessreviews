@@ -5,9 +5,11 @@
                 <td>Business Name</td>
             </tr>
         </thead>
-        ${listOfBusinesses.map(business => 
-                `<tr>
-                    <td>${business.name}</td>
+        ${listOfBusinesses.map(business =>    
+            `<tr>
+                    <td>
+                        <a href="/businesses/${business.id}">${business.name}</a>
+                    </td>
                 </tr>`
             ).join('')}
     </table>

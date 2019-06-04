@@ -13,9 +13,36 @@ class Businesses {
         try {
             let response = await db.any(
                 `select 
-                    name 
+                    id, name 
                 from 
-                    businesses`);
+                    businesses`
+            );
+            return response;
+        } catch(err) {
+            return err.message
+        }
+    }
+    static async getOne(b_id) {
+        try {
+            let response = await db.any(
+                `select
+                    id, name, address, phone, type
+                from
+                    businesses
+                where
+                    id = ${b_id}`
+            );
+            return response;
+        } catch(err) {
+            return err.message
+        }
+    }
+    static async createReview(id, content, score) {
+        const query = `insert into reviews (score, content, business_id) values (${score}, '${content}', ${id});`;
+        console.log(query);
+        try {
+            let response = await db.result(query);
+            console.log(response);
             return response;
         } catch(err) {
             return err.message
